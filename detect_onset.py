@@ -1,9 +1,7 @@
-import os
-
+from librosa.onset import onset_detect
 import matplotlib.pyplot as plt
 import noisereduce as nr
 import numpy as np
-from librosa.onset import onset_detect
 from scipy.io import wavfile
 
 
@@ -25,7 +23,7 @@ def find_speech_onset(wav_path, nothing_before, plotted):
 
     Returns:
         numpy.ndarray: An array containing up to the first three detected onset times
-            (in seconds) after filtering.
+            (in milliseconds, rounded to one decimal) after filtering.
 
     Notes:
         - Uses noisereduce package for noise removal.
@@ -33,7 +31,7 @@ def find_speech_onset(wav_path, nothing_before, plotted):
 
     Example:
         >>> find_speech_onset("audio.wav", nothing_before=100, plotted=False)
-        array([0.22, 1.05, 2.47])
+        array([220.1, 1050.0, 2470.4])
     """
 
     # read in wav
