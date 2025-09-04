@@ -76,5 +76,5 @@ def find_speech_onset(wav_path, nothing_before, plotted):
         
     # return first 3 onsets for sanity
     else:
-        print(f"First three onsets are: {onsets[0]}ms, {onsets[1]}ms, and {onsets[2]}ms")
+        print(f"First three onsets are: {np.round(onsets[:3]*1000,1)} ms")
         return np.round(onsets[:3]*1000,1)
